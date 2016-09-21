@@ -1,4 +1,4 @@
-<ion-view view-title="WebSAFE">
+<ion-view view-title="WebSAFE" ng-inti="modal.show()">
     <!-- <ion-header-bar class="bar-assertive">
       <h1 class="title"> WebSAFE </h1>
     </ion-header-bar>
@@ -7,12 +7,34 @@
       <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons> -->
 
-    <ion-floating-menu menu-icon="ion-navicon-round" menu-color="#ef473a" menu-open-color="#ef473a">
-      <ion-floating-item icon="ion-play"  button-color="#ef473a" click="onStart()"> </ion-floating-item>
-      <ion-floating-item icon="ion-stop" button-color="#ef473a" click="onStop()"> </ion-floating-item>
-    </ion-floating-menu>
+  
+      <ion-floating-button icon="ion-location"  button-color="#686463" click="modal.show()"> </ion-floating-button>
+ 
 
     <ion-content>
       <div id="mapid"></div>   
     </ion-content>
+
+    <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-dark">
+          <h1 class="title">Summary</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <ion-item class="no-padding button-bar">
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'signin'">  
+            <i class="icon ion-android-people icon-text-padding"> </i> Population        
+          </label>
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'reg'">  
+            <i class="icon ion-cube icon-text-padding"> </i> Building
+          </label>
+        </ion-item>
+
+        </ion-content>
+      </ion-modal-view>
+</script>
 </ion-view>
+

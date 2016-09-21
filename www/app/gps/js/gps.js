@@ -1,6 +1,6 @@
 angular.module('app.gpscontrollers', [])
 
-.controller('GPSCtrl', function($scope, $state) {
+.controller('GPSCtrl', function($scope, $state, $ionicModal) {
 
   // MAP CODE START
 
@@ -41,6 +41,11 @@ angular.module('app.gpscontrollers', [])
     started = false;
     coordinates.length = 0;
   }*/
-
+  
+  $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
 
 });
