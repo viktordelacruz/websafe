@@ -3,10 +3,13 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
+
 angular.module('starter', 
   ['ionic', 
   'app.gpscontrollers',
   'app.sidemenucontrollers', 
+  'app.service',
   'ion-floating-menu'
   ])
 
@@ -28,7 +31,7 @@ angular.module('starter',
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
 
   .state('sidemenu', {
@@ -48,5 +51,6 @@ angular.module('starter',
       }
   })  
 
+  $ionicConfigProvider.tabs.position('bottom');
   $urlRouterProvider.otherwise('/sidemenu/gps');
 })

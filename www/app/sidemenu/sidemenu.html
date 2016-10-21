@@ -1,11 +1,4 @@
-<ion-side-menus enable-menu-with-back-views="false">
-
-<!--  <ion-side-menu-content>
-  <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button class="button-clear"><i class="icon ion-chevron-left"></i> Back</ion-nav-back-button>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
-  </ion-side-menu-content> -->
+<ion-side-menus enable-menu-with-back-views="false" ng-init="loadData()">
 
   <ion-side-menu-content>
     <ion-nav-bar class="bar-dark">
@@ -22,33 +15,43 @@
 
 
   <!-- Left menu -->
-  <ion-side-menu side="left">
-  <header class="bar bar-header bar-dark">
+  <ion-side-menu side="left" class="sidemenu-bgcolor">
+  <ion-header-bar class="bar bar-header bar-dark">
       <h1 class="title">Welcome</h1>
-  </header>
+  </ion-header-bar>
 
-    <ion-content>
-      <div class="card">
-      <div class="item item-divider">
-        In the case of a
-      </div>
-      <div class="item item-input item-select">
-        <select>
-          <option>5-YEAR FLOOD/option>
-          <option selected>25-YEAR FLOOD</option>
-          <option>100-YEAR FLOOD</option>
-        </select>
-      </div>
-      <div class="item item-divider">
-        How many
-      </div>
-      <div class="item item-input item-select">
-        <select>
-          <option>PEOPLE/option>
-          <option selected>BUILDINGS</option>
-        </select>
-      </div>
-    </div>
+  <ion-content>
+   <ion-item>
+    <select ng-model="locations.selected" ng-options="loc for loc in locations" value="">
+      <option selected value="" disabled="true"> Select Location </option>
+    </select> 
+    </ion-item>
+
+    <ion-item>
+    <select ng-model="locations.hazard">
+      <option selected value="" disabled="true"> Select Hazard </option>
+      <option value="flood_5">5-year Flood</option>
+      <option value="flood_25">25-year Flood</option>
+      <option value="flood_100">100-year Flood</option>
+    </select>
+    </ion-item>
+
+    <ion-item>
+    <select ng-model="locations.exposure">
+      <option selected value="" disabled="true"> Select Exposure </option>
+      <option value="popn">Population</option>
+      <option value="bldg">Buildings</option>
+    </select>
+    </ion-item>
+
+
+  <div class="question-padding">
+        <button class="button button-positive buttonchoose" style="float: left" ng-click="calculate()" menu-close> Calculate
+        </button>
+        <button class="button button-assertive buttonchoose" style="float: right"> Reset
+        </button>
+  </div>
+
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
