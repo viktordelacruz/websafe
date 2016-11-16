@@ -1,0 +1,133 @@
+#mapid {
+	height: 100vh;
+}
+
+#question {
+	color: #3047C7 !important;
+	font-size: 0.9em;
+}
+
+.search-mod {
+	background-color: #737373 !important;
+	color: #BFBFBF !important;
+}
+
+select {
+	width: 100%;
+	line-height: 75%;	
+}
+
+.menu-box {
+	font-size: 1.2em !important;
+	background-color: #737373 !important;
+	color: #BFBFBF !important;
+}
+
+.sidemenu-bgcolor, .menu-item {
+	background-color: #202122;
+}
+
+/*.list-bgcolor {
+	background-color: #808080;
+	margin: 2%;
+	padding: 3% !important;
+}*/
+
+.question-box {
+	padding: 5% 0px 5% 0px !important;	
+	/*border: none !important;*/		
+	text-align: center;
+}
+
+.question-actual {
+	background-color: transparent;
+	border: none !important;
+	text-align: center;
+	font-style: italic;
+	color: #ffffff;
+}
+
+.over-lay {	
+	background: rgba(33, 37, 43, 0.80);
+}
+
+.home-content {	
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.main-content {
+	position: absolute;
+	top: 15%;
+}
+
+.main-content-1 {
+	padding: 5%;
+	padding-top: 0px;
+	width: 100%;
+}
+
+.bottom-content {
+	position: absolute;
+	bottom: 0%;
+}
+
+.bottom-content button {
+	padding: 0px !important;
+}
+
+.bg-neutral {
+	background-color: #ECECEC !important;
+}
+
+.bg-light {
+	background-color: #FFFFFF !important;
+}
+
+.button-icon {	
+	font-size: 15px !important;
+}
+
+.no-padding {
+	padding: 0px !important;
+}
+
+.list-item {
+	margin: 10px auto;
+}
+
+.sub i {
+	width: 40px;
+}
+
+.borderless {
+	border: none;
+}
+
+.top-bottom-bordered {
+	border: 1px solid #DDD;
+	border-left: none;
+	border-right: none;
+}
+
+.icon-text-padding {
+	padding-right: 0.2em;
+}
+
+.label-btn {
+	background-color: #FFF;	
+}
+
+ion-item.landing, .landing div {
+	width: 100%;
+}
+
+.landing-content-padding {
+	padding-left: 1%;
+	padding-right: 2%;
+}
+
+.transparent {
+	background-color: transparent;	
+}
