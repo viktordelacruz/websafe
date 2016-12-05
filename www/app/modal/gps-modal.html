@@ -1,0 +1,86 @@
+<ion-modal-view>
+  <ion-tabs class="tabs-dark tabs-icon-top">
+    <ion-tab title="Population" icon="ion-android-people">
+      <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">Information</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
+      </ion-header-bar>
+      <ion-content class="has-header">      
+        <ion-item class="no-padding button-bar">                      
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
+            <i class="icon ion-clipboard icon-text-padding"> </i>
+            <span> Summary </span>
+          </label>
+
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
+            <i class="icon ion-medkit icon-text-padding"> </i>
+            <span> Needs </span>
+          </label>
+        </ion-item>
+
+        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'summary'">
+          <div class="list list-inset landing-content-padding">
+            High hazard area: {{showData.popHigh}} <br>
+            Medium hazard area: {{showData.popMedium}} <br>
+            Low hazard area: {{showData.popLow}} <br>
+            Total impact: {{showData.popTotal}}
+          </div>
+        </ion-item>  
+
+        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'needs'">
+          <div class="list list-inset landing-content-padding">
+            Rice: {{showData.rice}} <br>
+            Clean water (L): {{showData.cleanWater}} <br>
+            Drinking water (L): {{showData.drinkingWater}} <br>
+            Family Kits: {{showData.kits}} <br>
+            Toilets: {{showData.toilets}}
+          </div>
+        </ion-item>       
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Buildings" icon="ion-cube">
+      <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">Information</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
+      </ion-header-bar>
+      <ion-content class="has-header">        
+        <ion-item class="no-padding button-bar">
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
+            <i class="icon ion-clipboard icon-text-padding"> </i> 
+            <span> Summary </span>
+          </label>
+
+          <label class="item item-radio button button-icon">
+            <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
+            <i class="icon ion-wrench icon-text-padding"> </i>
+            <span> Building Types </span>
+          </label>
+        </ion-item>
+
+        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'summary'">
+          <div class="list list-inset landing-content-padding">
+            High hazard area: {{showData.bldHigh}} <br>
+            Medium hazard area: {{showData.bldMedium}} <br>
+            Low hazard area: {{showData.bldLow}} <br>
+            Total buildings affected: {{showData.bldTotal}}   
+          </div>
+        </ion-item>  
+
+        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'needs'">
+          <div class="list list-inset landing-content-padding">
+            School: {{showData.school}} <br>
+            Residential: {{showData.residential}} <br>
+            Government <br>
+            Hospital: {{showData.hospital}} <br>
+            Church: {{showData.church}} <br>
+            Others: {{showData.others}} <br>
+          </div>
+        </ion-item>        
+      </ion-content>
+    </ion-tab> 
+  </ion-tabs>
+</ion-modal-view>

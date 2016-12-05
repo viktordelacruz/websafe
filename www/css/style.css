@@ -27,11 +27,13 @@ select {
 	background-color: #202122;
 }
 
-/*.list-bgcolor {
-	background-color: #808080;
-	margin: 2%;
-	padding: 3% !important;
-}*/
+button.selected {
+	background-color: #3047C7;
+}
+
+input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {  
+  color: #3047C7 !important;  
+}
 
 .question-box {
 	padding: 5% 0px 5% 0px !important;	

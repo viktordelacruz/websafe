@@ -64,10 +64,17 @@ angular.module('app.gpscontrollers', [])
 
   });
   
-  $ionicModal.fromTemplateUrl('templates/modal.html', {
+  $ionicModal.fromTemplateUrl('app/modal/gps-modal.html', {
     scope: $scope
+    // animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.modal= modal;
   });
+
+  // $ionicModal.fromTemplateUrl('templates/modal.html', {
+  //   scope: $scope
+  // }).then(function(modal) {
+  //   $scope.modal = modal;
+  // });
 
 });
