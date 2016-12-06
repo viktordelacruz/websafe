@@ -2,6 +2,8 @@ angular.module('app.gpscontrollers', [])
 
 .controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate) {
 
+  var layer;
+
   $scope.tabs = {
     landing: 'summary' //default landing is population tab
   }
@@ -27,7 +29,8 @@ angular.module('app.gpscontrollers', [])
     var lat = data[0].data.center[1];
     var lng = data[0].data.center[0];
     map.setView(new L.LatLng(lat, lng), 12);
-    L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+    if(layer != null) map.removeLayer(layer); //clear previous layers
+    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
       layers: [data[0].geoserver_layer, data[0].exposure_layer.replace('-', ':')],
       format: 'image/png',
       transparent: true,

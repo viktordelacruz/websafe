@@ -1,6 +1,6 @@
 angular.module('app.sidemenucontrollers', [])
 
-.controller('SideMenuCtrl', function($scope, $state, getJSONService) {
+.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup) {
 	$scope.locations = {}
   var locations = [];
   var uniqueLocs = [];
@@ -46,10 +46,16 @@ angular.module('app.sidemenucontrollers', [])
                 if(obj.exposure_layer.indexOf(exposure) > -1){
                   console.log("exposure_layer selected:", obj.exposure_layer);
                   this.foundItem.push(obj);
-                } 
+                }
               }
             }
          }
+    }
+    if(this.foundItem.length == 0){
+      var alertPopup = $ionicPopup.alert({
+        title: 'Data not available!',
+        template: 'Try another selection'
+      });
     }
     console.log("Found item!", this.foundItem);
     $scope.$broadcast("myData", this.foundItem);
