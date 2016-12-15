@@ -12,6 +12,10 @@
 	color: #BFBFBF !important;
 }
 
+.me {
+	text-align: left;
+}
+
 select {
 	width: 100%;
 	line-height: 75%;	
@@ -23,8 +27,9 @@ select {
 	color: #BFBFBF !important;
 }
 
-.sidemenu-bgcolor, .menu-item {
+.sidemenu-bgcolor, .menu-item, .sidemenu-bgcolor .item {
 	background-color: #202122;
+	color: white;	
 }
 
 button.selected {
@@ -70,7 +75,7 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	width: 100%;
 }
 
-.bottom-content {
+/*.bottom-content {
 	position: absolute;
 	bottom: 0%;
 }
@@ -86,16 +91,9 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 .bg-light {
 	background-color: #FFFFFF !important;
 }
+*/
 
-.button-icon {	
-	font-size: 15px !important;
-}
-
-.no-padding {
-	padding: 0px !important;
-}
-
-.list-item {
+/*.list-item {
 	margin: 10px auto;
 }
 
@@ -111,14 +109,37 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	border: 1px solid #DDD;
 	border-left: none;
 	border-right: none;
+}*/
+
+/*.label-btn {
+	background-color: #FFF;	
+}*/
+
+.custom-btn:active {
+	background-color: #FFF;
+	color: #000;
+}
+
+.crit-btn {
+	text-align: left;
+	background-color: #202122;	
+	color: white;
+}
+
+.button-icon {	
+	font-size: 15px !important;
+}
+
+.no-padding {
+	padding: 0px !important;
+}
+
+.no-margin {
+	margin: 0px !important;
 }
 
 .icon-text-padding {
 	padding-right: 0.2em;
-}
-
-.label-btn {
-	background-color: #FFF;	
 }
 
 ion-item.landing, .landing div {
