@@ -25,7 +25,7 @@
         <div ng-show="!showOptions">
           <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'websafe') && (showOptions = ! showOptions)"><i class="icon ion-map"></i> WebSAFE </div>
           <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'crit-sec') && (showOptions = ! showOptions)"><i class="icon ion-alert-circled"></i> Critical Sections </div>
-          <div class="item item-icon item-icon-left item-borderless custom-btn"><i class="icon ion-forward"></i> Share </div>
+          <div class="item item-icon item-icon-left item-borderless custom-btn"><i class="icon ion-forward" ng-click="share()"></i> Share </div>
           <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'about') && (showOptions = ! showOptions)"><i class="icon ion-information-circled"></i> About </div>
         </div>
 
@@ -73,10 +73,10 @@
 
         <div ng-switch-when="crit-sec">
             <div style="padding-top: 10%">
-              <div class="item item-borderless custom-btn"> Option 1 </div>
-              <div class="item item-borderless custom-btn"> Option 2 </div>
-              <div class="item item-borderless custom-btn"> Option 3 </div>
-              <div class="item item-borderless custom-btn"> Option 4 </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalSchools()"> Schools </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalHealthFacilities()"> Health Facilities </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalPoliceStations()"> Police Stations </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalFireStations()"> Fire Stations </div>
             </div>
             <!-- <button class="button button-full crit-btn no-margin"> Option 1 </button>
             <button class="button button-full crit-btn no-margin"> Option 2 </button>

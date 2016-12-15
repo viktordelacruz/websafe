@@ -1,6 +1,6 @@
 angular.module('app.sidemenucontrollers', [])
 
-.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup) {
+.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup, $cordovaSocialSharing) {
 	$scope.locations = {}
   var locations = [];
   var uniqueLocs = [];
@@ -62,6 +62,25 @@ angular.module('app.sidemenucontrollers', [])
     $scope.$broadcast("selectedExposure", exposure);
   }
 
+  $scope.criticalSchools = function(){
+    $scope.$broadcast("criticalSchools", true);
+  }
+
+  $scope.criticalHealthFacilities = function(){
+    $scope.$broadcast("criticalHealthFacilities", true);
+  }
+
+  $scope.criticalPoliceStations = function(){
+    $scope.$broadcast("criticalPoliceStations", true);
+  }
+
+  $scope.criticalFireStations = function(){
+    $scope.$broadcast("criticalFireStations", true);
+  }
+
+  $scope.share = function(){
+
+  }
 })
 
 //locations search plugin

@@ -19,6 +19,42 @@ angular.module('app.gpscontrollers', [])
     id: 'mapbox.streets'
   }).addTo(map);  
 
+  $scope.$on("criticalSchools", function(event, data){
+    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+      layers: 'Critical_Facility:CriticalFacility_School',
+      format: 'image/png',
+      transparent: true,
+      version: '1.3'
+    }).setOpacity(0.75).addTo(map);
+  });
+
+  $scope.$on("criticalHealthFacilities", function(event, data){
+    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+      layers: 'Critical_Facility:CriticalFacilitity_HealthFacility',
+      format: 'image/png',
+      transparent: true,
+      version: '1.3'
+    }).setOpacity(0.75).addTo(map);
+  });
+
+  $scope.$on("criticalPoliceStations", function(event, data){
+    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+      layers: 'Critical_Facility:CriticalFacilitity_PoliceStation',
+      format: 'image/png',
+      transparent: true,
+      version: '1.3'
+    }).setOpacity(0.75).addTo(map);
+  });
+
+  $scope.$on("criticalFireStations", function(event, data){
+    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+      layers: 'Critical_Facility:CriticalFacilitity_FireStation',
+      format: 'image/png',
+      transparent: true,
+      version: '1.3'
+    }).setOpacity(0.75).addTo(map);
+  });
+
   $scope.$on("selectedExposure", function(event, data){
     if(data == 'popn') $ionicTabsDelegate.select(0);
     else $ionicTabsDelegate.select(1);
