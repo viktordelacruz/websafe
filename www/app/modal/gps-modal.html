@@ -29,13 +29,24 @@
           </div>
         </ion-item>  
 
-        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'needs'">
-          <div class="list list-inset landing-content-padding">
-            Rice: {{showData.rice}} <br>
+        <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">
+          <div class="list list-inset landing-content-padding full-view">
+            <!-- Rice: {{showData.rice}} <br>
             Clean water (L): {{showData.cleanWater}} <br>
             Drinking water (L): {{showData.drinkingWater}} <br>
             Family Kits: {{showData.kits}} <br>
-            Toilets: {{showData.toilets}}
+            Toilets: {{showData.toilets}} -->
+            <div class="row" style="margin-bottom: 0.3em"> 
+              <div class="col" style="margin-right: 0.3em"> <b> Rice: </b> {{showData.rice}} </div>
+              <div class="col"> <b> Family Kits: </b> {{showData.kits}} </div>
+            </div>
+            <div class="row" style="margin-bottom: 0.3em">
+              <div class="col" style="margin-right: 0.3em"> <b> Clean water (L): </b> {{showData.cleanWater}} </div>
+              <div class="col"> <b> Drinking water (L): </b> {{showData.drinkingWater}} </div>
+            </div>
+            <div class="row">              
+              <div class="col"> <b> Toilets: </b> {{showData.toilets}} </div>
+            </div>
           </div>
         </ion-item>       
       </ion-content>
@@ -70,17 +81,34 @@
           </div>
         </ion-item>  
 
-        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'needs'">
-          <div class="list list-inset landing-content-padding">
-            School: {{showData.school}} <br>
+        <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">
+          <div class="list list-inset landing-content-padding full-view">
+            <!-- School: {{showData.school}} <br>
             Residential: {{showData.residential}} <br>
             Government <br>
             Hospital: {{showData.hospital}} <br>
             Church: {{showData.church}} <br>
-            Others: {{showData.others}} <br>
+            Others: {{showData.others}} <br> -->
+            <div class="row" style="margin-bottom: 0.3em"> 
+              <div class="col" style="margin-right: 0.3em"> <b> School: </b> {{showData.school}} </div>
+              <div class="col"> <b> Residential: </b> {{showData.residential}} </div>
+            </div>
+            <div class="row" style="margin-bottom: 0.3em">
+              <div class="col" style="margin-right: 0.3em"> Government: {{showdata.government}} </div>
+              <div class="col"> <b> Hospital: </b> {{showData.hospital}} </div>
+            </div>
+            <div class="row">
+              <div class="col" style="margin-right: 0.3em"> <b> Church: </b> {{showData.church}} </div>
+              <div class="col"> <b> Others: </b> {{showData.others}} </div>
+            </div>
           </div>
         </ion-item>        
       </ion-content>
     </ion-tab> 
   </ion-tabs>
 </ion-modal-view>
+
+<!-- ALTERNATIVE WAY OF IMPLEMENTING TABS -->
+<!-- - div: use class row and col
+- icon and span, yeah
+- use ng-switch, maybe, or just plain old ng-show and ng-hide -->

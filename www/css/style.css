@@ -115,6 +115,19 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	background-color: #FFF;	
 }*/
 
+.full-view {
+	height: 100%;
+	width: 100%;
+}
+
+div.row {
+	height: 27%;
+}
+
+div.row .col {
+	background-color: #5674AA;
+}
+
 .custom-btn:active {
 	background-color: #FFF;
 	color: #000;
