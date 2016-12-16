@@ -96,7 +96,7 @@ angular.module('app.gpscontrollers', [])
     //building types
     $scope.showData.school = data[0].data.summary.buildings_list.School;
     $scope.showData.residential = data[0].data.summary.buildings_list.Residential;
-    //$scope.showData.government = data[0].data.summary.;
+    $scope.showData.government = data[0].data.summary.affected_government;
     $scope.showData.hospital = data[0].data.summary.buildings_list.Hospital;
     $scope.showData.church = data[0].data.summary.buildings_list.Church;
     $scope.showData.others = data[0].data.summary.buildings_list.Other;

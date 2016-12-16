@@ -1,6 +1,6 @@
 angular.module('app.sidemenucontrollers', [])
 
-.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup, $cordovaSocialSharing) {
+.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup) {
 	$scope.locations = {}
   var locations = [];
   var uniqueLocs = [];
@@ -79,7 +79,7 @@ angular.module('app.sidemenucontrollers', [])
   }
 
   $scope.share = function(){
-
+    //share function goes here
   }
 })
 
