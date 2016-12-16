@@ -79,7 +79,7 @@ angular.module('app.sidemenucontrollers', [])
   }
 
   $scope.share = function(){
-
+    //share function goes here
   }
 })
 
