@@ -84,8 +84,28 @@ angular.module('app.sidemenucontrollers', [])
       if(error){
         console.error(error);
       }else{
-        console.log('screenshot taken!!!',res.filePath);
-        window.plugins.socialsharing.share(null, null, res.filePath, null);
+        // this is the complete list of currently supported params you can pass to the plugin (all optional)
+        var options = {
+          message: '', // not supported on some apps (Facebook, Instagram)
+          subject: '', // fi. for email
+          files: ['file://'+res.filePath], // an array of filenames either locally or remotely
+          url: '',
+          chooserTitle: '' // Android only, you can override the default share sheet title
+        }
+
+        var onSuccess = function(result) {
+          console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+          console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+        }
+
+        var onError = function(msg) {
+          console.log("Sharing failed with message: " + msg);
+        }
+
+        window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+
+        /*console.log('screenshot taken!!!',res.filePath);
+        window.plugins.socialsharing.share(null, null, res.filePath, null);*/
       }
     });
   }
