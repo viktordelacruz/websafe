@@ -5,6 +5,10 @@
         <h1 class="title">Information</h1>
         <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
       </ion-header-bar>
+
+      <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
+      </ion-floating-button>
+
       <ion-content class="has-header">      
         <ion-item class="no-padding button-bar">                      
           <label class="item item-radio button button-icon">
@@ -36,16 +40,31 @@
             Drinking water (L): {{showData.drinkingWater}} <br>
             Family Kits: {{showData.kits}} <br>
             Toilets: {{showData.toilets}} -->
-            <div class="row" style="margin-bottom: 0.3em"> 
-              <div class="col" style="margin-right: 0.3em"> <b> Rice: </b> {{showData.rice}} </div>
-              <div class="col"> <b> Family Kits: </b> {{showData.kits}} </div>
+            <div class="row" style="margin-bottom: 0.3em">
+              <div class="col item-text-wrap" style="margin-right: 0.3em;">
+                <img src="img/needs/needs_rice.png" width="60%" height="80%"> <br>
+                <b> Rice: </b> {{showData.rice}}
+              </div>
+              <div class="col item-text-wrap">
+                <img src="img/needs/needs_kits.png" width="60%" height="80%"> <br>
+                <b> Family Kits: </b> {{showData.kits}}
+              </div>
             </div>
             <div class="row" style="margin-bottom: 0.3em">
-              <div class="col" style="margin-right: 0.3em"> <b> Clean water (L): </b> {{showData.cleanWater}} </div>
-              <div class="col"> <b> Drinking water (L): </b> {{showData.drinkingWater}} </div>
+              <div class="col item-text-wrap" style="margin-right: 0.3em">
+                <img src="img/needs/needs_water.png" width="60%" height="80%"> <br>
+                <b> Clean water (L): </b> {{showData.cleanWater}}
+              </div>
+              <div class="col item-text-wrap">
+                <img src="img/needs/needs_toilets.png" width="60%" height="80%"> <br>
+                <b> Toilets: </b> {{showData.toilets}}
+              </div>
             </div>
-            <div class="row">              
-              <div class="col"> <b> Toilets: </b> {{showData.toilets}} </div>
+            <div class="row">
+              <div class="col item-text-wrap">
+                <img src="img/needs/needs_drinking-water.png" width="40%" height="80%"> <br>
+                <b> Drinking water (L): </b> {{showData.drinkingWater}}
+              </div>
             </div>
           </div>
         </ion-item>       
@@ -90,16 +109,34 @@
             Church: {{showData.church}} <br>
             Others: {{showData.others}} <br> -->
             <div class="row" style="margin-bottom: 0.3em"> 
-              <div class="col" style="margin-right: 0.3em"> <b> School: </b> {{showData.school}} </div>
-              <div class="col"> <b> Residential: </b> {{showData.residential}} </div>
+              <div class="col item-text-wrap" style="margin-right: 0.3em">
+                <img src="img/buildings/infrastructure_school.png" width="60%" height="80%"> <br>
+                <b> School: </b> {{showData.school}}                
+              </div>
+              <div class="col item-text-wrap">
+                <img src="img/buildings/infrastructure_house.png" width="60%" height="80%"> <br>
+                <b> Residential: </b> {{showData.residential}}                
+                </div>
             </div>
             <div class="row" style="margin-bottom: 0.3em">
-              <div class="col" style="margin-right: 0.3em"> Government: {{showdata.government}} </div>
-              <div class="col"> <b> Hospital: </b> {{showData.hospital}} </div>
+              <div class="col item-text-wrap" style="margin-right: 0.3em">
+                <img src="img/buildings/infrastructure_government.png" width="60%" height="80%"> <br>
+                <b> Government: </b> {{showdata.government}}
+              </div>
+              <div class="col item-text-wrap">
+                <img src="img/buildings/infrastructure_hospital.png" width="60%" height="80%"> <br>
+                <b> Hospital: </b> {{showData.hospital}}
+              </div>
             </div>
             <div class="row">
-              <div class="col" style="margin-right: 0.3em"> <b> Church: </b> {{showData.church}} </div>
-              <div class="col"> <b> Others: </b> {{showData.others}} </div>
+              <div class="col item-text-wrap" style="margin-right: 0.3em">
+                <img src="img/buildings/infrastructure_church.png" width="60%" height="80%"> <br>
+                <b> Church: </b> {{showData.church}}
+              </div>
+              <div class="col item-text-wrap">
+                <img src="img/buildings/infrastructure_building.png" width="60%" height="80%"> <br>
+                <b> Others: </b> {{showData.others}}
+              </div>
             </div>
           </div>
         </ion-item>        

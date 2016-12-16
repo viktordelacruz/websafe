@@ -17,7 +17,19 @@ angular.module('app.gpscontrollers', [])
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     id: 'mapbox.streets'
-  }).addTo(map);  
+  }).addTo(map);
+
+  $scope.share = function(){
+    console.log("clicked share!");
+    navigator.screenshot.save(function(error,res){
+      if(error){
+        console.error(error);
+      }else{
+        console.log('screenshot taken!!!',res.filePath);
+        window.plugins.socialsharing.share(null, null, res.filePath, null);
+      }
+    });
+  }
 
   $scope.$on("criticalSchools", function(event, data){
     layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {

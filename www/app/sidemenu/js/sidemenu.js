@@ -78,17 +78,17 @@ angular.module('app.sidemenucontrollers', [])
     $scope.$broadcast("criticalFireStations", true);
   }
 
-  $scope.share = function(){
-    console.log("clicked share!");
-    navigator.screenshot.save(function(error,res){
-      if(error){
-        console.error(error);
-      }else{
-        console.log('screenshot taken!!!',res.filePath);
-        window.plugins.socialsharing.share(null, null, res.filePath, null);
-      }
-    });
-  }
+  // $scope.share = function(){
+  //   console.log("clicked share!");
+  //   navigator.screenshot.save(function(error,res){
+  //     if(error){
+  //       console.error(error);
+  //     }else{
+  //       console.log('screenshot taken!!!',res.filePath);
+  //       window.plugins.socialsharing.share(null, null, res.filePath, null);
+  //     }
+  //   });
+  // }
 })
 
 //locations search plugin

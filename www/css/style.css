@@ -125,7 +125,9 @@ div.row {
 }
 
 div.row .col {
-	background-color: #5674AA;
+	border: 1px solid #5674AA;
+	text-align: center;
+	/*background-color: #5674AA;*/
 }
 
 .custom-btn:active {
