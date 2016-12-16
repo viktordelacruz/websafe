@@ -79,7 +79,15 @@ angular.module('app.sidemenucontrollers', [])
   }
 
   $scope.share = function(){
-    //share function goes here
+    console.log("clicked share!");
+    navigator.screenshot.save(function(error,res){
+      if(error){
+        console.error(error);
+      }else{
+        console.log('screenshot taken!!!',res.filePath);
+        window.plugins.socialsharing.share(null, null, res.filePath, null);
+      }
+    });
   }
 })
 
