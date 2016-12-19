@@ -121,13 +121,45 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 }
 
 div.row {
-	height: 27%;
+	height: 14%;
+	border: 1px solid #eff0f2;
+	background-color: #f7f8f9;
+/*	border-left-style: none;
+	border-right-style: none;	*/
+	margin-bottom: 0.8em;	
 }
 
-div.row .col {
-	border: 1px solid #5674AA;
-	text-align: center;
-	/*background-color: #5674AA;*/
+/*div.row:first-child {	
+	margin-top: 0.8em;
+}*/
+
+/*div.row:not(:last-child) {
+	margin-bottom: 0.8em;
+}*/
+
+/*div.row .col {	
+	text-align: center;	
+	background-color: #5674AA;
+}*/
+
+/*div.row .col img {
+	width: 60%;
+	height: 80%;		
+}*/
+
+div.row .img-col {
+	background: no-repeat center center;
+	background-size: 40% 100%;	
+}
+
+div.row .text-col {
+	display: inline-block;
+  	vertical-align: middle;
+  	line-height: normal;	
+}
+
+h1.title {
+	font-size: 2em;
 }
 
 .custom-btn:active {

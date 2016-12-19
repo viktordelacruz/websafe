@@ -9,8 +9,8 @@
       <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
       </ion-floating-button>
 
-      <ion-content class="has-header">      
-        <ion-item class="no-padding button-bar">                      
+      <ion-content class="has-header">
+        <ion-item class="no-padding button-bar item-borderless">
           <label class="item item-radio button button-icon">
             <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
             <i class="icon ion-clipboard icon-text-padding"> </i>
@@ -24,7 +24,7 @@
           </label>
         </ion-item>
 
-        <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'summary'">
+        <ion-item class="list no-padding item-borderless full-view" ng-show="tabs.landing == 'summary'">
           <div class="list list-inset landing-content-padding">
             High hazard area: {{showData.popHigh}} <br>
             Medium hazard area: {{showData.popMedium}} <br>
@@ -33,39 +33,76 @@
           </div>
         </ion-item>  
 
-        <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">
+        <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">         
           <div class="list list-inset landing-content-padding full-view">
             <!-- Rice: {{showData.rice}} <br>
             Clean water (L): {{showData.cleanWater}} <br>
             Drinking water (L): {{showData.drinkingWater}} <br>
             Family Kits: {{showData.kits}} <br>
             Toilets: {{showData.toilets}} -->
-            <div class="row" style="margin-bottom: 0.3em">
+
+            <!-- <div class="row" style="margin-bottom: 0.3em">
               <div class="col item-text-wrap" style="margin-right: 0.3em;">
-                <img src="img/needs/needs_rice.png" width="60%" height="80%"> <br>
+                <img src="img/needs/needs_rice.png"> <br>
                 <b> Rice: </b> {{showData.rice}}
               </div>
               <div class="col item-text-wrap">
-                <img src="img/needs/needs_kits.png" width="60%" height="80%"> <br>
+                <img src="img/needs/needs_kits.png"> <br>
                 <b> Family Kits: </b> {{showData.kits}}
               </div>
             </div>
             <div class="row" style="margin-bottom: 0.3em">
               <div class="col item-text-wrap" style="margin-right: 0.3em">
-                <img src="img/needs/needs_water.png" width="60%" height="80%"> <br>
+                <img src="img/needs/needs_water.png"> <br>
                 <b> Clean water (L): </b> {{showData.cleanWater}}
               </div>
               <div class="col item-text-wrap">
-                <img src="img/needs/needs_toilets.png" width="60%" height="80%"> <br>
+                <img src="img/needs/needs_toilets.png"> <br>
                 <b> Toilets: </b> {{showData.toilets}}
               </div>
             </div>
             <div class="row">
               <div class="col item-text-wrap">
-                <img src="img/needs/needs_drinking-water.png" width="40%" height="80%"> <br>
+                <img src="img/needs/needs_drinking-water.png" style="width: 40% !important"> <br>
                 <b> Drinking water (L): </b> {{showData.drinkingWater}}
               </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/needs/needs_rice.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.rice}} 1800 </h1> Rice
+              </div>
             </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/needs/needs_kits.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.kits}} 1800 </h1> Family Kits
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/needs/needs_water.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.cleanWater}} 1800 </h1> Clean Water
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/needs/needs_drinking-water.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.drinkingWater}} 1800 </h1> Drinking Water
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/needs/needs_toilets.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.toilets}} 1800 </h1> Toilets
+              </div>
+            </div>
+
           </div>
         </ion-item>       
       </ion-content>
@@ -112,7 +149,8 @@
             Hospital: {{showData.hospital}} <br>
             Church: {{showData.church}} <br>
             Others: {{showData.others}} <br> -->
-            <div class="row" style="margin-bottom: 0.3em"> 
+
+       <!--      <div class="row" style="margin-bottom: 0.3em"> 
               <div class="col item-text-wrap" style="margin-right: 0.3em">
                 <img src="img/buildings/infrastructure_school.png" width="60%" height="80%"> <br>
                 <b> School: </b> {{showData.school}}                
@@ -141,7 +179,50 @@
                 <img src="img/buildings/infrastructure_building.png" width="60%" height="80%"> <br>
                 <b> Others: </b> {{showData.others}}
               </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_school.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.school}} 1800 </h1> School
+              </div>
             </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_house.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.residential}} 1800 </h1> Residential
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_government.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.government}} 1800 </h1> Government
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_hospital.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.hospital}} 1800 </h1> Hospital
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_church.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.church}} 1800 </h1> Church
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col img-col" style="background-image: url('img/buildings/infrastructure_building.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.others}} 1800 </h1> Other
+              </div>
+            </div>
+
           </div>
         </ion-item>        
       </ion-content>
