@@ -10,7 +10,8 @@ angular.module('starter',
   'app.gpscontrollers',
   'app.sidemenucontrollers', 
   'app.service',
-  'ion-floating-menu'
+  'ion-floating-menu',
+  'highcharts-ng'
   ])
 
 .run(function($ionicPlatform) {

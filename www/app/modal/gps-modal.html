@@ -30,11 +30,15 @@
             Medium hazard area: {{showData.popMedium}} <br>
             Low hazard area: {{showData.popLow}} <br>
             Total impact: {{showData.popTotal}} -->
+            <div class="row">
+              <div class="col summary-img-col" style="background-image: url('img/needs/people_affected.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.popTotal}} </h1> Total Population <br> Affected
+              </div>
+            </div>
+            
+            <highchart id="chart1" config="chartConfig1" class="span10"></highchart>            
 
-            <!-- <hc-chart options="chartOptions">Placeholder for generic chart</hc-chart>
-            <hc-pie-chart title="Browser usage" data="pieData">Placeholder for pie chart</hc-pie-chart> -->
-
-            <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
           </div>
         </ion-item>  
 
@@ -76,35 +80,35 @@
             <div class="row">
               <div class="col img-col" style="background-image: url('img/needs/needs_rice.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.rice}} 1800 </h1> Rice
+                <h1 class="title"> {{showData.rice}} </h1> Rice
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/needs/needs_kits.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.kits}} 1800 </h1> Family Kits
+                <h1 class="title"> {{showData.kits}} </h1> Family Kits
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/needs/needs_water.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.cleanWater}} 1800 </h1> Clean Water
+                <h1 class="title"> {{showData.cleanWater}} </h1> Clean Water
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/needs/needs_drinking-water.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.drinkingWater}} 1800 </h1> Drinking Water
+                <h1 class="title"> {{showData.drinkingWater}} </h1> Drinking Water
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/needs/needs_toilets.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.toilets}} 1800 </h1> Toilets
+                <h1 class="title"> {{showData.toilets}} </h1> Toilets
               </div>
             </div>
 
@@ -139,10 +143,19 @@
 
         <ion-item class="list landing item-borderless" ng-show="tabs.landing == 'summary'">
           <div class="list list-inset landing-content-padding">
-            High hazard area: {{showData.bldHigh}} <br>
+<!--             High hazard area: {{showData.bldHigh}} <br>
             Medium hazard area: {{showData.bldMedium}} <br>
             Low hazard area: {{showData.bldLow}} <br>
-            Total buildings affected: {{showData.bldTotal}}   
+            Total buildings affected: {{showData.bldTotal}} -->
+
+            <div class="row">
+              <div class="col summary-img-col" style="background-image: url('img/buildings/infrastructure_building.png')"> </div>
+              <div class="col text-col">
+                <h1 class="title"> {{showData.bldTotal}} </h1> Total Buildings <br> Affected
+              </div>
+            </div>
+
+            <highchart id="chart2" config="chartConfig2" class="span10"></highchart> 
           </div>
         </ion-item>  
 
@@ -189,42 +202,42 @@
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_school.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.school}} 1800 </h1> School
+                <h1 class="title"> {{showData.school}} </h1> School
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_house.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.residential}} 1800 </h1> Residential
+                <h1 class="title"> {{showData.residential}} </h1> Residential
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_government.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.government}} 1800 </h1> Government
+                <h1 class="title"> {{showData.government}} </h1> Government
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_hospital.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.hospital}} 1800 </h1> Hospital
+                <h1 class="title"> {{showData.hospital}} </h1> Hospital
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_church.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.church}} 1800 </h1> Church
+                <h1 class="title"> {{showData.church}} </h1> Church
               </div>
             </div>
 
             <div class="row">
               <div class="col img-col" style="background-image: url('img/buildings/infrastructure_building.png')"> </div>
               <div class="col text-col">
-                <h1 class="title"> {{showData.others}} 1800 </h1> Other
+                <h1 class="title"> {{showData.others}} </h1> Other
               </div>
             </div>
 
@@ -235,7 +248,18 @@
   </ion-tabs>
 </ion-modal-view>
 
-<!-- ALTERNATIVE WAY OF IMPLEMENTING TABS -->
-<!-- - div: use class row and col
-- icon and span, yeah
-- use ng-switch, maybe, or just plain old ng-show and ng-hide -->
+
+<!-- To do:
+1. chart size
+2. chart title
+3. modal sectioning -->
+
+<!-- Issues
+1. For data in needs and building types, it should be checked whether they're null or not
+  - if any is null, define it as 0
+  - do this before the chart update functions
+2. The variables are the same for Population and Building summaries. Like:
+  $scope.showData.popHigh = data[0].data.summary.high;
+  $scope.showData.bldHigh = data[0].data.summary.high;
+   There should be a way to determine whether it's population or building, so that only one chart is update (currently, both charts get updated with the same information)
+ -->

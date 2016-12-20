@@ -120,6 +120,11 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	width: 100%;
 }
 
+#chart1, #chart2 {
+	border: 1px solid #eff0f2;
+	background-color: #f7f8f9;
+}
+
 div.row {
 	height: 14%;
 	border: 1px solid #eff0f2;
@@ -150,6 +155,11 @@ div.row {
 div.row .img-col {
 	background: no-repeat center center;
 	background-size: 40% 100%;	
+}
+
+div.row .summary-img-col {
+	background: no-repeat center center;
+	background-size: 60% 100%;	
 }
 
 div.row .text-col {

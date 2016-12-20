@@ -17,7 +17,53 @@ angular.module('app.gpscontrollers', [])
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     id: 'mapbox.streets'
-  }).addTo(map);
+  }).addTo(map);  
+
+  $scope.updateChart1 = function() {
+    console.log("Chart1: I got here");    
+    $scope.chartConfig1.series = [{
+      type: 'pie',
+      name: 'Affected Areas',
+      innerSize: '45%',
+      data: [{
+          name: 'High',
+          y: $scope.showData.popHigh,
+          color: '#ce5037',          
+        }, {
+          name: 'Medium',
+          y: $scope.showData.popMedium,
+          color: '#f49835'
+        }, {
+          name: 'Low',
+          y: $scope.showData.popLow,
+          color: '#fff659',          
+        }]
+    }];
+    console.log("Chart1: Wahoo");
+  }
+
+  $scope.updateChart2 = function() {
+    console.log("Chart2: I got here");    
+    $scope.chartConfig2.series = [{
+      type: 'pie',
+      name: 'Affected Areas',
+      innerSize: '45%',
+      data: [{
+          name: 'High',
+          y: $scope.showData.bldHigh,
+          color: '#ce5037',          
+        }, {
+          name: 'Medium',
+          y: $scope.showData.bldMedium,
+          color: '#f49835'
+        }, {
+          name: 'Low',
+          y: $scope.showData.bldLow,
+          color: '#fff659',          
+        }]
+    }];
+    console.log("Chart2: Wahoo");
+  }
 
   $scope.share = function(){
     console.log("clicked share!");
@@ -90,10 +136,10 @@ angular.module('app.gpscontrollers', [])
   $scope.$on("selectedExposure", function(event, data){
     if(data == 'popn') $ionicTabsDelegate.select(0);
     else $ionicTabsDelegate.select(1);
-  });
+  });  
 
   $scope.$on("myData", function(event, data){
-    console.log("Received emitted data!", data);
+    console.log("Received emitted data!", data);    
     var lat = data[0].data.center[1];
     var lng = data[0].data.center[0];
     map.setView(new L.LatLng(lat, lng), 12);
@@ -104,11 +150,15 @@ angular.module('app.gpscontrollers', [])
       transparent: true,
       version: '1.3'
     }).setOpacity(0.75).addTo(map);
-    //summary for population exposure
+    //summary for population exposure    
     $scope.showData.popHigh = data[0].data.summary.high;
     $scope.showData.popMedium = data[0].data.summary.medium;
     $scope.showData.popLow = data[0].data.summary.low;
     $scope.showData.popTotal = data[0].data.summary.total_impact;
+
+    //null data should be defined as 0
+    $scope.updateChart1();
+
     //needs (for loop necessary because key has spaces)
     for(var key in data[0].data.summary.total_needs){
       var obj = data[0].data.summary.total_needs[key];
@@ -124,78 +174,142 @@ angular.module('app.gpscontrollers', [])
     $scope.showData.bldHigh = data[0].data.summary.high;
     $scope.showData.bldMedium = data[0].data.summary.medium;
     $scope.showData.bldLow = data[0].data.summary.low;
-    $scope.showData.bldTotal = data[0].data.summary.total_impact;
+    $scope.showData.bldTotal = data[0].data.summary.total_impact; 
+
+    //null data should be defined as 0    
+    $scope.updateChart2();
+
     //building types
     $scope.showData.school = data[0].data.summary.buildings_list.School;
     $scope.showData.residential = data[0].data.summary.buildings_list.Residential;
     $scope.showData.government = data[0].data.summary.affected_government;
     $scope.showData.hospital = data[0].data.summary.buildings_list.Hospital;
     $scope.showData.church = data[0].data.summary.buildings_list.Church;
-    $scope.showData.others = data[0].data.summary.buildings_list.Other;
-
+    $scope.showData.others = data[0].data.summary.buildings_list.Other;        
   });
   
   $ionicModal.fromTemplateUrl('app/modal/gps-modal.html', {
     scope: $scope
     // animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal= modal;
+  }).then(function(modal) {    
+    $scope.modal= modal;    
   });
 
-
-  console.log("JSON: " + JSON.stringify(chartingOptions));
-  console.log("Render to element with ID : " + chartingOptions.chart.renderTo);
-  console.log("Number of matching dom elements : " + $("#" + chartingOptions.chart.renderTo).length);  
-  
-  Highcharts.chart('container', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-        title: {
-            text: 'Browser<br>shares<br>2015',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 40
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white'
-                    }
-                },
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%']
+  $scope.chartConfig1 = {
+    options: {
+      chart: {
+        type: 'pie',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        backgroundColor: 'transparent'
+      },
+      // title: {
+      //   text: 'Affected Population',
+      //   align: 'center',
+      //   verticalAlign: 'top',
+      //   y: 0
+      // },   
+      tooltip: {
+        pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            enabled: true,
+            distance: -30,                                        
+            style: {
+              fontWeight: 'bold',
+              fontSize: '1.5em',
+              color: 'white',
+              textOutline: '2px #7c7c79',              
+            },
+            formatter: function() {
+              return this.y;
             }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Browser share',
-            innerSize: '50%',
-            data: [
-                ['Firefox',   10.38],
-                ['IE',       56.33],
-                ['Chrome', 24.03],
-                ['Safari',    4.77],
-                ['Opera',     0.91],
-                {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2,
-                    dataLabels: {
-                        enabled: false
-                    }
-                }
-            ]
+          },
+          showInLegend: true
+        }
+      },
+      legend: {
+        verticalAlign: 'top'
+      }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Affected Areas',
+        innerSize: '45%',
+        data: [{
+          name: 'High',
+          y: 69,
+          color: '#ce5037',          
+        }, {
+          name: 'Medium',
+          y: 69,
+          color: '#f49835'
+        }, {
+          name: 'Low',
+          y: 69,
+          color: '#fff659',          
         }]
-    });  
+    }],
+  }
+
+  $scope.chartConfig2 = {
+    options: {
+      chart: {
+        type: 'pie',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        backgroundColor: 'transparent'
+      },
+      title: {
+        text: null
+      },
+      tooltip: {
+        pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            enabled: true,
+            distance: -30,                                        
+            style: {
+              fontWeight: 'bold',
+              fontSize: '1.5em',
+              color: 'white',
+              textOutline: '2px #7c7c79',            
+            },
+            formatter: function() {
+              return this.y;
+            }
+          },
+          showInLegend: true
+        }
+      },
+      legend: {
+        verticalAlign: 'top'
+      }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Affected Areas',
+        innerSize: '45%',
+        data: [{
+          name: 'High',
+          y: 69,
+          color: '#ce5037',          
+        }, {
+          name: 'Medium',
+          y: 69,
+          color: '#f49835'
+        }, {
+          name: 'Low',
+          y: 69,
+          color: '#fff659',          
+        }]
+    }],
+  }
 
 });
