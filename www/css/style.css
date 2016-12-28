@@ -54,7 +54,7 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	color: #ffffff;
 }
 
-.over-lay {	
+/*.over-lay {	
 	background: rgba(33, 37, 43, 0.80);
 }
 
@@ -73,7 +73,7 @@ input[type=radio]:checked ~ i,  input[type=radio]:checked ~ span {
 	padding: 5%;
 	padding-top: 0px;
 	width: 100%;
-}
+}*/
 
 /*.bottom-content {
 	position: absolute;
@@ -183,6 +183,12 @@ h1.title {
 	color: white;
 }
 
+.button-bar-bborder {
+	border: 2px solid black;
+	border-style: none;
+	border-bottom-style: solid;
+}
+
 .button-icon {	
 	font-size: 15px !important;
 }
@@ -199,13 +205,13 @@ h1.title {
 	padding-right: 0.2em;
 }
 
-ion-item.landing, .landing div {
+/*ion-item.landing, .landing div {
 	width: 100%;
-}
+}*/
 
 .landing-content-padding {
 	padding-left: 1%;
-	padding-right: 2%;
+	padding-right: 1%;
 }
 
 .transparent {

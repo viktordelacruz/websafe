@@ -1,0 +1,45 @@
+<ion-modal-view>
+  <!-- <ion-header-bar class="bar bar-header bar-dark">
+    <h1 class="title">Information</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
+  </ion-header-bar> -->
+  <ion-tabs class="tabs-item-hide">
+
+    <ion-tab title="Population" icon="ion-android-people" hidden>
+      
+      <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
+      </ion-floating-button>
+
+      <!-- <ion-content class="has-header"> -->
+        <section ng-include="'app/partials/tabs-popn.html'"></section>
+      <!-- </ion-content> -->
+    </ion-tab>
+
+    <ion-tab title="Buildings" icon="ion-cube">
+
+      <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
+      </ion-floating-button>
+      
+      <ion-content class="has-header">        
+        <section ng-include="'app/partials/tabs-bldg.html'"></section>  
+      </ion-content>
+    </ion-tab> 
+
+  </ion-tabs>
+</ion-modal-view>
+
+
+<!-- To do:
+1. chart size
+2. chart title
+3. modal sectioning -->
+
+<!-- Issues
+1. For data in needs and building types, it should be checked whether they're null or not
+  - if any is null, define it as 0
+  - do this before the chart update functions
+2. The variables are the same for Population and Building summaries. Like:
+  $scope.showData.popHigh = data[0].data.summary.high;
+  $scope.showData.bldHigh = data[0].data.summary.high;
+   There should be a way to determine whether it's population or building, so that only one chart is update (currently, both charts get updated with the same information)
+ -->

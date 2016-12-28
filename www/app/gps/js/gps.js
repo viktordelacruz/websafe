@@ -24,7 +24,7 @@ angular.module('app.gpscontrollers', [])
     $scope.chartConfig1.series = [{
       type: 'pie',
       name: 'Affected Areas',
-      innerSize: '45%',
+      innerSize: '50%',
       data: [{
           name: 'High',
           y: $scope.showData.popHigh,
@@ -47,7 +47,7 @@ angular.module('app.gpscontrollers', [])
     $scope.chartConfig2.series = [{
       type: 'pie',
       name: 'Affected Areas',
-      innerSize: '45%',
+      innerSize: '50%',
       data: [{
           name: 'High',
           y: $scope.showData.bldHigh,
@@ -188,7 +188,7 @@ angular.module('app.gpscontrollers', [])
     $scope.showData.others = data[0].data.summary.buildings_list.Other;        
   });
   
-  $ionicModal.fromTemplateUrl('app/modal/gps-modal.html', {
+  $ionicModal.fromTemplateUrl('app/partials/modal-gps.html', {
     scope: $scope
     // animation: 'slide-in-up'
   }).then(function(modal) {    
@@ -205,14 +205,26 @@ angular.module('app.gpscontrollers', [])
         backgroundColor: 'transparent'
       },
       // title: {
-      //   text: 'Affected Population',
-      //   align: 'center',
-      //   verticalAlign: 'top',
-      //   y: 0
-      // },   
-      tooltip: {
-        pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
+      //   text: null
+      // },
+      title: {
+        floating: true,
+        text: 'Affected <br> Population',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 20
       },
+      tooltip: {
+        formatter: function() {
+             return '<b>' + this.point.name + ' Hazard Area <br></b> <b>' + this.y + '</b> (' + Highcharts.numberFormat(this.percentage, 2) + '%)';
+        },
+        style: {
+          fontSize: '1.3em'
+        }
+      },
+      // tooltip: {
+      //   pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
+      // },
       plotOptions: {
         pie: {
           dataLabels: {
@@ -231,14 +243,20 @@ angular.module('app.gpscontrollers', [])
           showInLegend: true
         }
       },
-      legend: {
+      legend: {        
+        itemStyle: {
+          fontSize: '1.2em'          
+        },
+        symbolRadius: 0,
+        symbolHeight: 15,
+        symbolWidth: 20,        
         verticalAlign: 'top'
       }
     },
     series: [{
         type: 'pie',
         name: 'Affected Areas',
-        innerSize: '45%',
+        innerSize: '50%',
         data: [{
           name: 'High',
           y: 69,
@@ -264,11 +282,23 @@ angular.module('app.gpscontrollers', [])
         plotShadow: false,
         backgroundColor: 'transparent'
       },
+      // title: {
+      //   text: null
+      // },
       title: {
-        text: null
+        floating: true,
+        text: 'Affected <br> Areas',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 20
       },
       tooltip: {
-        pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
+        formatter: function() {
+             return '<b>' + this.point.name + ' Hazard Area <br></b> <b>' + this.y + '</b> (' + Highcharts.numberFormat(this.percentage, 2) + '%)';
+        },
+        style: {
+          fontSize: '1.3em'
+        }
       },
       plotOptions: {
         pie: {
@@ -288,14 +318,20 @@ angular.module('app.gpscontrollers', [])
           showInLegend: true
         }
       },
-      legend: {
+      legend: {        
+        itemStyle: {
+          fontSize: '1.2em'          
+        },
+        symbolRadius: 0,
+        symbolHeight: 15,
+        symbolWidth: 20,        
         verticalAlign: 'top'
       }
     },
     series: [{
         type: 'pie',
         name: 'Affected Areas',
-        innerSize: '45%',
+        innerSize: '50%',
         data: [{
           name: 'High',
           y: 69,
