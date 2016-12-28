@@ -151,6 +151,13 @@ div.row {
 	width: 60%;
 	height: 80%;		
 }*/
+.fixed-header {
+	margin-top: 7vh;
+}
+
+.below-header {
+	margin-top: 9vh;
+}
 
 div.row .img-col {
 	background: no-repeat center center;

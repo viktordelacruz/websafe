@@ -1,24 +1,20 @@
-<ion-content class="has-header">
-  <ion-item class="no-padding button-bar button-bar-bborder">
-    <label class="item item-radio button button-icon">
-      <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
-      <i class="icon ion-clipboard icon-text-padding"> </i>
-      <span> Summary </span>
-    </label>
+<ion-item class="no-padding button-bar button-bar-bborder fixed-header">
+  <label class="item item-radio button button-icon">
+    <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
+    <i class="icon ion-clipboard icon-text-padding"> </i>
+    <span> Summary </span>
+  </label>
 
-    <label class="item item-radio button button-icon">
-      <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
-      <i class="icon ion-medkit icon-text-padding"> </i>
-      <span> Needs </span>
-    </label>
-  </ion-item>
+  <label class="item item-radio button button-icon">
+    <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
+    <i class="icon ion-medkit icon-text-padding"> </i>
+    <span> Needs </span>
+  </label>
+</ion-item>
 
-  <ion-item class="list no-padding item-borderless full-view" ng-show="tabs.landing == 'summary'">
-    <div class="list list-inset landing-content-padding">
-      <!-- High hazard area: {{showData.popHigh}} <br>
-      Medium hazard area: {{showData.popMedium}} <br>
-      Low hazard area: {{showData.popLow}} <br>
-      Total impact: {{showData.popTotal}} -->
+<ion-content class="below-header">
+  <ion-item class="no-padding item-borderless full-view" ng-show="tabs.landing == 'summary'">
+    <div class="list list-inset landing-content-padding">    
       <div class="row">
         <div class="col summary-img-col" style="background-image: url('img/needs/people_affected.png')"> </div>
         <div class="col text-col">
@@ -26,45 +22,12 @@
         </div>
       </div>
       
-      <highchart id="chart1" config="chartConfig1" class="span10"></highchart>            
-
+      <highchart id="chart1" config="chartConfig1" class="span10"></highchart>
     </div>
   </ion-item>  
 
   <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">         
-    <div class="list list-inset landing-content-padding full-view">
-      <!-- Rice: {{showData.rice}} <br>
-      Clean water (L): {{showData.cleanWater}} <br>
-      Drinking water (L): {{showData.drinkingWater}} <br>
-      Family Kits: {{showData.kits}} <br>
-      Toilets: {{showData.toilets}} -->
-
-      <!-- <div class="row" style="margin-bottom: 0.3em">
-        <div class="col item-text-wrap" style="margin-right: 0.3em;">
-          <img src="img/needs/needs_rice.png"> <br>
-          <b> Rice: </b> {{showData.rice}}
-        </div>
-        <div class="col item-text-wrap">
-          <img src="img/needs/needs_kits.png"> <br>
-          <b> Family Kits: </b> {{showData.kits}}
-        </div>
-      </div>
-      <div class="row" style="margin-bottom: 0.3em">
-        <div class="col item-text-wrap" style="margin-right: 0.3em">
-          <img src="img/needs/needs_water.png"> <br>
-          <b> Clean water (L): </b> {{showData.cleanWater}}
-        </div>
-        <div class="col item-text-wrap">
-          <img src="img/needs/needs_toilets.png"> <br>
-          <b> Toilets: </b> {{showData.toilets}}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col item-text-wrap">
-          <img src="img/needs/needs_drinking-water.png" style="width: 40% !important"> <br>
-          <b> Drinking water (L): </b> {{showData.drinkingWater}}
-        </div>
-      </div> -->
+    <div class="list list-inset landing-content-padding full-view">      
 
       <div class="row">
         <div class="col img-col" style="background-image: url('img/needs/needs_rice.png')"> </div>

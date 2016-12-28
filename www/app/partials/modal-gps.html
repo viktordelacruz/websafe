@@ -6,23 +6,15 @@
   <ion-tabs class="tabs-item-hide">
 
     <ion-tab title="Population" icon="ion-android-people" hidden>
-      
       <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
       </ion-floating-button>
-
-      <!-- <ion-content class="has-header"> -->
-        <section ng-include="'app/partials/tabs-popn.html'"></section>
-      <!-- </ion-content> -->
+      <section ng-include="'app/partials/tabs-popn.html'"></section>      
     </ion-tab>
 
     <ion-tab title="Buildings" icon="ion-cube">
-
       <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
       </ion-floating-button>
-      
-      <ion-content class="has-header">        
-        <section ng-include="'app/partials/tabs-bldg.html'"></section>  
-      </ion-content>
+      <section ng-include="'app/partials/tabs-bldg.html'"></section>        
     </ion-tab> 
 
   </ion-tabs>

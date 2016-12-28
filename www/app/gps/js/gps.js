@@ -1,11 +1,12 @@
 angular.module('app.gpscontrollers', [])
 
-.controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate) {
+.controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate, $ionicPopup) {
 
   var mapLayer;
 
   $scope.tabs = {
-    landing: 'summary' //default landing is population tab
+    landing: 'summary', //default landing is population tab
+    hasData: false
   }
 
   $scope.showData = {} //summary for population exposure
@@ -134,6 +135,7 @@ angular.module('app.gpscontrollers', [])
   });
 
   $scope.$on("selectedExposure", function(event, data){
+    $scope.tabs.hasData = true;    
     if(data == 'popn') $ionicTabsDelegate.select(0);
     else $ionicTabsDelegate.select(1);
   });  
@@ -194,6 +196,16 @@ angular.module('app.gpscontrollers', [])
   }).then(function(modal) {    
     $scope.modal= modal;    
   });
+
+  $scope.openModal = function() {
+    if($scope.tabs.hasData == false) {      
+      var alertPopup = $ionicPopup.alert({
+        title: 'Data not available!',
+        template: 'Try another selection'
+      });    
+    }
+    else $scope.modal.show();
+  };
 
   $scope.chartConfig1 = {
     options: {
