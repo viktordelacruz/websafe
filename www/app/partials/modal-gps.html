@@ -5,7 +5,7 @@
   </ion-header-bar>
   <ion-tabs class="tabs-item-hide">
 
-    <ion-tab title="Population" icon="ion-android-people" hidden>
+    <ion-tab title="Population" icon="ion-android-people">
       <ion-floating-button ng-click="share()" has-footer="true" button-color="#444" icon="ion-forward" icon-color="#FFF">
       </ion-floating-button>
       <section ng-include="'app/partials/tabs-popn.html'"></section>      
@@ -20,18 +20,15 @@
   </ion-tabs>
 </ion-modal-view>
 
-
-<!-- To do:
-1. chart size
-2. chart title
-3. modal sectioning -->
-
-<!-- Issues
+<!-- Remaining tasks
 1. For data in needs and building types, it should be checked whether they're null or not
   - if any is null, define it as 0
   - do this before the chart update functions
-2. The variables are the same for Population and Building summaries. Like:
-  $scope.showData.popHigh = data[0].data.summary.high;
-  $scope.showData.bldHigh = data[0].data.summary.high;
-   There should be a way to determine whether it's population or building, so that only one chart is update (currently, both charts get updated with the same information)
+  - if not fixed, the modal will show weird data (i.e. symbols like [] or no data at all)
+2. "Go to current location" button on the floating menu still doesn't do anything
+3. "About" on the sidemenu is still empty besides that one filler sentence
+
+
+Issues
+1. Sometimes the layout messes up for some unknown reason. Not sure of the reason.
  -->

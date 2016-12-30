@@ -1,31 +1,23 @@
-<ion-item class="no-padding button-bar button-bar-bborder fixed-header">
-  <label class="item item-radio button button-icon">
-    <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
-    <i class="icon ion-clipboard icon-text-padding"> </i>
-    <span> Summary </span>
-  </label>
+<ion-header-bar class="bar-subheader bar-dark padding">
+  <span> In the event of a <b> {{ params.hazard }} </b> in <b> {{ params.location }}</b>, how many people might need evacuation? </span>
+</ion-header-bar> -->
 
-  <label class="item item-radio button button-icon">
-    <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
-    <i class="icon ion-medkit icon-text-padding"> </i>
-    <span> Needs </span>
-  </label>
-</ion-item>
-
-<ion-content class="below-header">
+<ion-content>
   <ion-item class="no-padding item-borderless full-view" ng-show="tabs.landing == 'summary'">
-    <div class="list list-inset landing-content-padding">    
+    <div class="list-inset landing-content-padding">    
       <div class="row">
         <div class="col summary-img-col" style="background-image: url('img/needs/people_affected.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.popTotal}} </h1> Total Population <br> Affected
         </div>
-      </div>
+      </div>          
       
       <highchart id="chart1" config="chartConfig1" class="span10"></highchart>
     </div>
-  </ion-item>  
-
+  </ion-item>
+</ion-content>  
+  
+<ion-content>
   <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">         
     <div class="list list-inset landing-content-padding full-view">      
 
@@ -67,3 +59,17 @@
     </div>
   </ion-item>
 </ion-content>
+
+<ion-footer-bar class="bar bar-dark">
+  <label class="item item-radio button button-icon custom-tab">
+    <input type="radio" ng-model="tabs.landing" ng-value="'summary'">  
+    <i class="icon ion-clipboard icon-text-padding"> </i>
+    <span> Summary </span>
+  </label>
+
+  <label class="item item-radio button button-icon custom-tab">
+    <input type="radio" ng-model="tabs.landing" ng-value="'needs'">  
+    <i class="icon ion-medkit icon-text-padding"> </i>
+    <span> Needs </span>
+  </label>      
+</ion-footer-bar>

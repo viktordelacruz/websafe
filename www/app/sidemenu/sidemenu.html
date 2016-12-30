@@ -15,8 +15,7 @@
 
   <!-- Left menu -->
   <ion-side-menu side="left" class="sidemenu-bgcolor">    
-    <ion-header-bar class="bar bar-header bar-dark">
-      <!-- <button class="button-icon"><i class="icon ion-android-arrow-back"></i></button> -->
+    <ion-header-bar class="bar bar-header bar-dark">      
       <h1 class="title" style="text-align: center"> Menu </h1>
     </ion-header-bar>
 
@@ -45,7 +44,7 @@
             </div>
 
             <ion-item class="item-borderless menu-item">
-              <select class="menu-box" style="padding: 0px 0px 0px 3%" ng-model="locations.hazard">
+              <select class="menu-box" style="padding: 0px 0px 0px 3%" ng-model="locations.hazard" ng-change="floodChange()">              
                 <option selected value="" disabled="true"> Select Hazard </option>
                 <option value="flood_5">5-year Flood</option>
                 <option value="flood_25">25-year Flood</option>
@@ -54,16 +53,16 @@
             </ion-item>
 
             <ion-item class="item-borderless menu-item">
-              <select class="menu-box" style="padding: 0px 0px 0px 3%" ng-model="locations.exposure">
+              <select class="menu-box" style="padding: 0px 0px 0px 3%" ng-model="locations.exposure" ng-change="layerChange()">
                 <option selected value="" disabled="true"> Select Exposure </option>
                 <option value="popn">Population</option>
                 <option value="bldg">Buildings</option>
               </select>
             </ion-item>
                   
-            <ion-item class="item-borderless menu-item">        
+            <ion-item class="item-borderless menu-item">              
               <div class="question-box item-text-wrap">
-                <p id="question"> This is a question, according to Viktor. A question will be added here later on. </p>
+                <p id="question" ng-init="(question.flood = '_____________') && (question.location = '_____________') && (question.entity = '__________') && (question.effect = '_____________')"> In the event of a <b> {{ question.flood }} </span> </b> in <b> {{ question.location }}</b>, how many <b> {{ question.entity }}</b> will  <b> {{ question.effect }}</b>? </p>
               </div>
               <button class="button button-positive button-block" style="float: center" ng-click="calculate()" menu-close> Display on Map </button>
             </ion-item>
@@ -77,10 +76,6 @@
               <div class="item item-borderless custom-btn" ng-click="criticalPoliceStations()"> Police Stations </div>
               <div class="item item-borderless custom-btn" ng-click="criticalFireStations()"> Fire Stations </div>
             </div>
-            <!-- <button class="button button-full crit-btn no-margin"> Option 1 </button>
-            <button class="button button-full crit-btn no-margin"> Option 2 </button>
-            <button class="button button-full crit-btn no-margin"> Option 3 </button>
-            <button class="button button-full crit-btn no-margin"> Option 4 </button> -->
         </div>
         
         <div ng-switch-when="about">
@@ -93,34 +88,3 @@
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
-
-<!-- modal -->
-<script id="templates/searchSelect.html" type="text/ng-template">
-  <ion-modal-view>
-    <ion-header-bar>
-      <button class="button button-icon ion-close" ng-click="closeModal();"></button>
-      <h1 class="title" style="right: 0 !important;" ng-if="searchSelect.enableSearch">
-        <label class="item item-icon-left" style="height: 100%;top: -6px;padding: 0px 0px 0px 32px !important;">
-          <i class="icon ion-android-search" style="font-size: 20px; left: 0 !important;top: 7px;"></i>
-          <input type="text" placeholder="{{searchSelect.title}}" ng-model="searchSelect.searchvalue" style="width: 90%;height: 100%;margin-top: 7px;" />
-        </label>
-        <i ng-if="searchSelect.searchvalue.length > 0" on-tap="clearSearch()" class="icon ion-close" style="top:0px;right: 0px;position:absolute;cursor:pointer;z-index: 2;"></i>
-      </h1>
-      <h1 class="title" ng-if="!searchSelect.enableSearch">{{ searchSelect.title }}</h1>
-    </ion-header-bar>
-    <ion-content>
-        <div class="list">
-          <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty">
-            <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
-                {{ option[searchSelect.valueProperty] }}
-            </ion-radio>
-          </div>
-          <div ng-if="!searchSelect.keyProperty || !searchSelect.valueProperty">
-            <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" ng-value="option" item-width="100%" ng-click="saveOption()" ng-model="searchSelect.option">
-                {{ option }}
-            </ion-radio>
-          </div>
-        </div>
-    </ion-content>
-  </ion-modal-view>
-</script>

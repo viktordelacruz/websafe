@@ -1,13 +1,14 @@
 angular.module('app.gpscontrollers', [])
 
-.controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate, $ionicPopup) {
-
+.controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate, $ionicPopup) {  
   var mapLayer;
 
   $scope.tabs = {
     landing: 'summary', //default landing is population tab
-    hasData: false
+    hasData: false    
   }
+
+  $scope.params = {}
 
   $scope.showData = {} //summary for population exposure
   var total_needsArr = []; //needed for total_needs because key has spaces
@@ -18,7 +19,7 @@ angular.module('app.gpscontrollers', [])
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     id: 'mapbox.streets'
-  }).addTo(map);  
+  }).addTo(map);
 
   $scope.updateChart1 = function() {
     console.log("Chart1: I got here");    
@@ -134,6 +135,15 @@ angular.module('app.gpscontrollers', [])
     }).setOpacity(0.75).addTo(map);
   });
 
+  $scope.$on("selectedHazard", function(event, data){
+    var hString = "";    
+    if(data.indexOf("25") > -1) hString = "25-Year Flood";
+    else if(data.indexOf("5") > -1) hString = "5-Year Flood";
+    else if(data.indexOf("100") > -1) hString = "100-Year Flood";
+    $scope.params.hazard = hString;
+    console.log($scope.params.hazard)
+  });  
+
   $scope.$on("selectedExposure", function(event, data){
     $scope.tabs.hasData = true;    
     if(data == 'popn') $ionicTabsDelegate.select(0);
@@ -152,11 +162,15 @@ angular.module('app.gpscontrollers', [])
       transparent: true,
       version: '1.3'
     }).setOpacity(0.75).addTo(map);
+
+    $scope.params.location = data[0].data.location;
+    console.log($scope.params.location)
+
     //summary for population exposure    
     $scope.showData.popHigh = data[0].data.summary.high;
     $scope.showData.popMedium = data[0].data.summary.medium;
     $scope.showData.popLow = data[0].data.summary.low;
-    $scope.showData.popTotal = data[0].data.summary.total_impact;
+    $scope.showData.popTotal = data[0].data.summary.total_impact;    
 
     //null data should be defined as 0
     $scope.updateChart1();
@@ -204,7 +218,7 @@ angular.module('app.gpscontrollers', [])
         template: 'Try another selection'
       });    
     }
-    else $scope.modal.show();
+    else $scope.modal.show();    
   };
 
   $scope.chartConfig1 = {
@@ -216,9 +230,6 @@ angular.module('app.gpscontrollers', [])
         plotShadow: false,
         backgroundColor: 'transparent'
       },
-      // title: {
-      //   text: null
-      // },
       title: {
         floating: true,
         text: 'Affected <br> Population',
@@ -234,9 +245,6 @@ angular.module('app.gpscontrollers', [])
           fontSize: '1.3em'
         }
       },
-      // tooltip: {
-      //   pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
-      // },
       plotOptions: {
         pie: {
           dataLabels: {
@@ -294,9 +302,6 @@ angular.module('app.gpscontrollers', [])
         plotShadow: false,
         backgroundColor: 'transparent'
       },
-      // title: {
-      //   text: null
-      // },
       title: {
         floating: true,
         text: 'Affected <br> Areas',
