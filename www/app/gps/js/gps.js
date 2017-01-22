@@ -170,6 +170,12 @@ angular.module('app.gpscontrollers', [])
     $scope.params.location = data[0].data.location;
     console.log($scope.params.location)
 
+    //list of buildings affected
+    var schoolsAffected = data[0].data.summary.affected_schools;
+    var hospitalsAffected = data[0].data.summary.affected_schools;
+    var residentialsAffected = data[0].data.summary.affected_schools;
+    var churchesAffected = data[0].data.summary.affected_schools;
+
     //summary for population exposure    
     $scope.showData.popHigh = data[0].data.summary.high;
     $scope.showData.popMedium = data[0].data.summary.medium;
@@ -202,7 +208,7 @@ angular.module('app.gpscontrollers', [])
     //building types
     $scope.showData.school = data[0].data.summary.buildings_list.School;
     $scope.showData.residential = data[0].data.summary.buildings_list.Residential;
-    $scope.showData.government = data[0].data.summary.affected_government;
+    $scope.showData.government = data[0].data.summary.affected_government.length;
     $scope.showData.hospital = data[0].data.summary.buildings_list.Hospital;
     $scope.showData.church = data[0].data.summary.buildings_list.Church;
     $scope.showData.others = data[0].data.summary.buildings_list.Other;        
