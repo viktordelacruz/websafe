@@ -21,6 +21,10 @@ angular.module('app.gpscontrollers', [])
     id: 'mapbox.streets'
   }).addTo(map);
 
+  $scope.currentLocation = function(){
+    map.locate({setView : true});
+  }
+
   $scope.updateChart1 = function() {
     console.log("Chart1: I got here");    
     $scope.chartConfig1.series = [{
