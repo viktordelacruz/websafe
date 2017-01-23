@@ -172,6 +172,7 @@ angular.module('app.gpscontrollers', [])
 
     //list of buildings affected
     var schoolsAffected = data[0].data.summary.affected_schools;
+    var governmentAffected = data[0].data.summary.affected_government;
     var hospitalsAffected = data[0].data.summary.affected_schools;
     var residentialsAffected = data[0].data.summary.affected_schools;
     var churchesAffected = data[0].data.summary.affected_schools;
