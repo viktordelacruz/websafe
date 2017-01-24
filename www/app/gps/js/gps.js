@@ -9,6 +9,11 @@ angular.module('app.gpscontrollers', [])
   }
 
   $scope.params = {}
+  $scope.schoolsAffected = [];
+  $scope.governmentAffected = [];
+  $scope.hospitalsAffected = [];
+  $scope.residentialsAffected = [];
+  $scope.churchesAffected = [];
 
   $scope.showData = {} //summary for population exposure
   var total_needsArr = []; //needed for total_needs because key has spaces
@@ -171,11 +176,11 @@ angular.module('app.gpscontrollers', [])
     console.log($scope.params.location)
 
     //list of buildings affected
-    var schoolsAffected = data[0].data.summary.affected_schools;
-    var governmentAffected = data[0].data.summary.affected_government;
-    var hospitalsAffected = data[0].data.summary.affected_schools;
-    var residentialsAffected = data[0].data.summary.affected_schools;
-    var churchesAffected = data[0].data.summary.affected_schools;
+    $scope.schoolsAffected = data[0].data.summary.affected_schools;
+    $scope.governmentAffected = data[0].data.summary.affected_government;
+    $scope.hospitalsAffected = data[0].data.summary.affected_hospitals;
+    $scope.residentialsAffected = data[0].data.summary.affected_residential;
+    $scope.churchesAffected = data[0].data.summary.affected_churches;
 
     //summary for population exposure    
     $scope.showData.popHigh = data[0].data.summary.high;
@@ -375,5 +380,17 @@ angular.module('app.gpscontrollers', [])
         }]
     }],
   }
+
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
 
 });

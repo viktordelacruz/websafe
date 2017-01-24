@@ -19,42 +19,57 @@
 
 <ion-content>
   <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">
-    <div class="list list-inset landing-content-padding full-view">
+    <div class="list list-inset landing-content-padding full-view" style="overflow: scroll;">
 
-      <div class="row">
+      <ion-item class="row" ng-click="toggleGroup(1)" ng-class="{active: isGroupShown(1)}">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_school.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.school}} </h1> School
         </div>
-      </div>
+      </ion-item>
+      <ion-item class="item-accordion" ng-repeat="school in schoolsAffected" ng-show="isGroupShown(1)">
+        {{school}}
+      </ion-item>
 
-      <div class="row">
+      <ion-item class="row" ng-click="toggleGroup(2)" ng-class="{active: isGroupShown(2)}">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_house.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.residential}} </h1> Residential
         </div>
-      </div>
+      </ion-item>
+      <ion-item class="item-accordion" ng-repeat="residential in residentialsAffected" ng-show="isGroupShown(2)">
+        {{residential}}
+      </ion-item>
 
-      <div class="row">
+      <ion-item class="row" ng-click="toggleGroup(3)" ng-class="{active: isGroupShown(3)}">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_government.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.government}} </h1> Government
         </div>
-      </div>
+      </ion-item>
+      <ion-item class="item-accordion" ng-repeat="government in governmentAffected" ng-show="isGroupShown(3)">
+        {{government}}
+      </ion-item>
 
-      <div class="row">
+      <ion-item class="row" ng-click="toggleGroup(4)" ng-class="{active: isGroupShown(4)}">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_hospital.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.hospital}} </h1> Hospital
         </div>
-      </div>
+      </ion-item>
+      <ion-item class="item-accordion" ng-repeat="hospital in hospitalsAffected" ng-show="isGroupShown(4)">
+        {{hospital}}
+      </ion-item>
 
-      <div class="row">
+      <ion-item class="row" ng-click="toggleGroup(5)" ng-class="{active: isGroupShown(5)}">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_church.png')"> </div>
         <div class="col text-col">
           <h1 class="title"> {{showData.church}} </h1> Church
         </div>
-      </div>
+      </ion-item>
+      <ion-item class="item-accordion" ng-repeat="church in churchesAffected" ng-show="isGroupShown(5)">
+        {{church}}
+      </ion-item>
 
       <div class="row">
         <div class="col img-col" style="background-image: url('img/buildings/infrastructure_building.png')"> </div>
