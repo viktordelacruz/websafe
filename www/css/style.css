@@ -133,6 +133,13 @@ h1.title {
 	background-color: transparent;	
 }
 
+.list {
+	position: relative;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    padding-left: 0;
+}
+
 .list .item.item-accordion {
   line-height: 38px;
   padding-top: 0;
@@ -147,13 +154,18 @@ h1.title {
   display: block !important;
 }
 
-.row:first-child {	
-	margin-top: 2.5vh;
-}
-
 .row {
 	height: 14%;
 	border: 1px solid #eff0f2;
 	background-color: #f7f8f9;
 	margin-bottom: 0.8em;	
+}
+
+.row .img-col {
+	background: no-repeat center center;
+	background-size: 40% 100%;	
+}
+
+.item-with-margin{
+	margin: 2.5vh;
 }

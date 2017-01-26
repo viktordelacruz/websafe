@@ -22,7 +22,7 @@
     <ion-content class="list" class="darkSide">
       <div ng-switch on="menu.option">
         <div ng-show="!showOptions">
-          <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'websafe') && (showOptions = ! showOptions)"><i class="icon ion-map"></i> WebSAFE </div>
+          <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'websafe') && (showOptions = ! showOptions)"><i class="icon ion-map"></i> Assessment </div>
           <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'crit-sec') && (showOptions = ! showOptions)"><i class="icon ion-alert-circled"></i> Critical Sections </div>          
           <div class="item item-icon item-icon-left item-borderless custom-btn" ng-click="(menu.option = 'about') && (showOptions = ! showOptions)"><i class="icon ion-information-circled"></i> About </div>          
         </div>
@@ -71,10 +71,10 @@
 
         <div ng-switch-when="crit-sec">
             <div style="padding-top: 10%">
-              <div class="item item-borderless custom-btn" ng-click="criticalSchools()"> Schools </div>
-              <div class="item item-borderless custom-btn" ng-click="criticalHealthFacilities()"> Health Facilities </div>
-              <div class="item item-borderless custom-btn" ng-click="criticalPoliceStations()"> Police Stations </div>
-              <div class="item item-borderless custom-btn" ng-click="criticalFireStations()"> Fire Stations </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalSchools()" menu-close> Schools </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalHealthFacilities()" menu-close> Health Facilities </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalPoliceStations()" menu-close> Police Stations </div>
+              <div class="item item-borderless custom-btn" ng-click="criticalFireStations()" menu-close> Fire Stations </div>
             </div>
         </div>
         

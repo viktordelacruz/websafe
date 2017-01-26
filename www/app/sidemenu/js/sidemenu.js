@@ -79,6 +79,13 @@ angular.module('app.sidemenucontrollers', [])
     var locName = $scope.locations.selected;
     var hazard = $scope.locations.hazard;
     var exposure = $scope.locations.exposure;
+    $scope.locations.selected = '';
+    $scope.locations.hazard = '';
+    $scope.locations.exposure = '';
+    $scope.question.flood = '_____________';
+    $scope.question.location = '_____________';
+    $scope.question.entity = '_____________';
+    $scope.question.effect = '_____________';
     for (var key in copyOfAllData) { //for each object in allData
          if (copyOfAllData.hasOwnProperty(key)) { //check if it has a key
             var obj = copyOfAllData[key]; //if so, get what it has

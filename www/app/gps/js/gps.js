@@ -1,7 +1,7 @@
 angular.module('app.gpscontrollers', [])
 
 .controller('GPSCtrl', function($scope, $state, $ionicModal, $ionicTabsDelegate, $ionicPopup) {  
-  var mapLayer;
+  var mapLayer, criticalLayer;
 
   $scope.tabs = {
     landing: 'summary', //default landing is population tab
@@ -27,7 +27,17 @@ angular.module('app.gpscontrollers', [])
   }).addTo(map);
 
   $scope.currentLocation = function(){
+
     map.locate({setView : true});
+    map.on('locationfound', onLocationFound);
+
+    function onLocationFound(e) {
+      L.marker(e.latlng).addTo(map).bindPopup("You are here!").openPopup();
+    }
+
+    function onLocationError(e) {
+      alert(e.message);
+    }
   }
 
   $scope.updateChart1 = function() {
@@ -109,7 +119,8 @@ angular.module('app.gpscontrollers', [])
   }
 
   $scope.$on("criticalSchools", function(event, data){
-    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+    if(criticalLayer != null) map.removeLayer(criticalLayer); //clear previous criticalLayers
+    criticalLayer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
       layers: 'Critical_Facility:CriticalFacility_School',
       format: 'image/png',
       transparent: true,
@@ -118,7 +129,8 @@ angular.module('app.gpscontrollers', [])
   });
 
   $scope.$on("criticalHealthFacilities", function(event, data){
-    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+    if(criticalLayer != null) map.removeLayer(criticalLayer); //clear previous criticalLayers
+    criticalLayer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
       layers: 'Critical_Facility:CriticalFacilitity_HealthFacility',
       format: 'image/png',
       transparent: true,
@@ -127,7 +139,8 @@ angular.module('app.gpscontrollers', [])
   });
 
   $scope.$on("criticalPoliceStations", function(event, data){
-    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+    if(criticalLayer != null) map.removeLayer(criticalLayer); //clear previous criticalLayers
+    criticalLayer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
       layers: 'Critical_Facility:CriticalFacilitity_PoliceStation',
       format: 'image/png',
       transparent: true,
@@ -136,7 +149,8 @@ angular.module('app.gpscontrollers', [])
   });
 
   $scope.$on("criticalFireStations", function(event, data){
-    layer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
+    if(criticalLayer != null) map.removeLayer(criticalLayer); //clear previous criticalLayers
+    criticalLayer = L.tileLayer.wms("http://geoserver.noah.dost.gov.ph/geoserver/wms", {
       layers: 'Critical_Facility:CriticalFacilitity_FireStation',
       format: 'image/png',
       transparent: true,
