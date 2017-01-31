@@ -173,6 +173,9 @@ angular.module('app.gpscontrollers', [])
     else $ionicTabsDelegate.select(1);
   });  
 
+  $scope.$on("fab:open", function(evt, data) {
+    alert('HELLO')
+  })
   $scope.$on("myData", function(event, data){
     console.log("Received emitted data!", data);    
     var lat = data[0].data.center[1];

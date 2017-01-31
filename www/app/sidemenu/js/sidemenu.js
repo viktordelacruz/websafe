@@ -1,6 +1,6 @@
 angular.module('app.sidemenucontrollers', [])
 
-.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup, $ionicModal) {
+.controller('SideMenuCtrl', function($scope, $state, getJSONService, $ionicPopup, $ionicModal, $timeout) {
   $scope.locations = {}
 
   $scope.question = {
@@ -106,6 +106,11 @@ angular.module('app.sidemenucontrollers', [])
         title: 'Data not available!',
         template: 'Try another selection'
       });
+    }
+    else{
+      $timeout(function() {
+        angular.element(document.querySelector('#floating-menu')).triggerHandler('click');
+      }, 0)
     }
     console.log("Found item!", this.foundItem);
     $scope.$broadcast("myData", this.foundItem);

@@ -47,7 +47,7 @@ input[type=radio]:not(:checked) ~ i,  input[type=radio]:not(:checked) ~ span {
 #chart1, #chart2 {
 	border: 1px solid #eff0f2;
 	background-color: #f7f8f9;
-	margin-bottom: 3vh;
+	margin-bottom: 1vh;
 }
 
 .bar-subheader {
