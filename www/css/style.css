@@ -94,7 +94,7 @@ div.row .text-col {
 }
 
 h1.title {
-	font-size: 2em;
+	font-size: 2.5em;
 }
 
 .custom-btn:active {
@@ -168,4 +168,18 @@ h1.title {
 
 .item-with-margin{
 	margin: 2.5vh;
+}
+
+.item-logo{
+	height: 100%;
+    position: absolute;
+}
+
+.logo-wrapper {
+	border: 0;
+}
+
+.logo-wrapper img {
+	height: 6em;
+	float: left;
 }

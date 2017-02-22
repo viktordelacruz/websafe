@@ -89,6 +89,7 @@ angular.module('app.gpscontrollers', [])
   $scope.share = function(){
     console.log("clicked share!");
     navigator.screenshot.save(function(error,res){
+      console.log("result filepath: ", res.filePath);
       if(error){
         console.error(error);
       }else{
@@ -203,7 +204,8 @@ angular.module('app.gpscontrollers', [])
     $scope.showData.popHigh = data[0].data.summary.high;
     $scope.showData.popMedium = data[0].data.summary.medium;
     $scope.showData.popLow = data[0].data.summary.low;
-    $scope.showData.popTotal = data[0].data.summary.total_impact;    
+    $scope.showData.popTotalImpact = data[0].data.summary.total_impact; 
+    $scope.showData.popTotal = data[0].data.summary.total;   
 
     //null data should be defined as 0
     $scope.updateChart1();
@@ -223,7 +225,8 @@ angular.module('app.gpscontrollers', [])
     $scope.showData.bldHigh = data[0].data.summary.high;
     $scope.showData.bldMedium = data[0].data.summary.medium;
     $scope.showData.bldLow = data[0].data.summary.low;
-    $scope.showData.bldTotal = data[0].data.summary.total_impact; 
+    $scope.showData.bldTotalImpact = data[0].data.summary.total_impact; 
+    $scope.showData.bldTotal = data[0].data.summary.total; 
 
     //null data should be defined as 0    
     $scope.updateChart2();

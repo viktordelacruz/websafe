@@ -2,13 +2,13 @@
   <span> In the event of a <b> {{ params.hazard }} </b> in <b> {{ params.location }}</b>, how many people might need evacuation? </span>
 </ion-header-bar> -->
 
-<ion-content>
+<ion-content style="overflow: scroll;">
   <ion-item class="no-padding item-borderless full-view" ng-show="tabs.landing == 'summary'">
     <div class="list-inset landing-content-padding">    
       <div class="row">
         <div class="col summary-img-col" style="background-image: url('img/needs/people_affected.png')"> </div>
         <div class="col text-col">
-          <h1 class="title"> {{showData.popTotal}} </h1> Total Population <br> Affected
+          <h1 class="title"> {{showData.popTotalImpact}} </h1>  out of {{showData.popTotal}} <br> Affected People
         </div>
       </div>          
       
@@ -19,42 +19,37 @@
   
 <ion-content>
   <ion-item class="list landing item-borderless full-view" ng-show="tabs.landing == 'needs'">         
-    <div class="list list-inset landing-content-padding full-view">      
+    <div class="list list-inset landing-content-padding full-view" style="overflow: scroll;">  
 
-      <div class="row">
-        <div class="col img-col" style="background-image: url('img/needs/needs_rice.png')"> </div>
-        <div class="col text-col">
-          <h1 class="title"> {{showData.rice}} </h1> Rice
-        </div>
-      </div>
+      <ion-item class="item-thumbnail-left item item-stable item-with-margin">
+        <img src="img/needs/needs_rice.png">
+        <h1 class="title ng-binding">{{showData.rice}}</h1>
+        <p>Rice</p>
+      </ion-item>    
 
-      <div class="row">
-        <div class="col img-col" style="background-image: url('img/needs/needs_kits.png')"> </div>
-        <div class="col text-col">
-          <h1 class="title"> {{showData.kits}} </h1> Family Kits
-        </div>
-      </div>
+      <ion-item class="item-thumbnail-left item item-stable item-with-margin">
+        <img src="img/needs/needs_kits.png">
+        <h1 class="title ng-binding">{{showData.kits}}</h1>
+        <p>Family Kits</p>
+      </ion-item>
 
-      <div class="row">
-        <div class="col img-col" style="background-image: url('img/needs/needs_water.png')"> </div>
-        <div class="col text-col">
-          <h1 class="title"> {{showData.cleanWater}} </h1> Clean Water
-        </div>
-      </div>
+      <ion-item class="item-thumbnail-left item item-stable item-with-margin">
+        <img src="img/needs/needs_water.png">
+        <h1 class="title ng-binding">{{showData.cleanWater}}</h1>
+        <p>Clean Water</p>
+      </ion-item>
 
-      <div class="row">
-        <div class="col img-col" style="background-image: url('img/needs/needs_drinking-water.png')"> </div>
-        <div class="col text-col">
-          <h1 class="title"> {{showData.drinkingWater}} </h1> Drinking Water
-        </div>
-      </div>
+      <ion-item class="item-thumbnail-left item item-stable item-with-margin">
+        <img src="img/needs/needs_drinking-water.png">
+        <h1 class="title ng-binding">{{showData.drinkingWater}}</h1>
+        <p>Drinking Water</p>
+      </ion-item>
 
-      <div class="row">
-        <div class="col img-col" style="background-image: url('img/needs/needs_toilets.png')"> </div>
-        <div class="col text-col">
-          <h1 class="title"> {{showData.toilets}} </h1> Toilets
-        </div>
-      </div>
+      <ion-item class="item-thumbnail-left item item-stable item-with-margin">
+        <img src="img/needs/needs_toilets.png">
+        <h1 class="title ng-binding">{{showData.toilets}}</h1>
+        <p>Toilets</p>
+      </ion-item>
 
     </div>
   </ion-item>

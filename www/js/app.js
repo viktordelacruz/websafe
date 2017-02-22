@@ -26,8 +26,10 @@ angular.module('starter',
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
+    ionic.Platform.fullScreen();
     if(window.StatusBar) {
       StatusBar.styleDefault();
+      return StatusBar.hide();
     }
   });
 })
